@@ -1,0 +1,108 @@
+@import "tailwindcss";
+@import "@nuxt/ui";
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  ul,
+  ol {
+    padding: 0;
+    margin: 0;
+  }
+
+  html,
+  body {
+    height: 100%;
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  body {
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    scroll-behavior: smooth;
+    line-height: 1.5;
+    min-width: 320px;
+    position: relative;
+    background: var(--black-color);
+  }
+
+  main {
+    flex: 1 1 auto;
+  }
+
+  footer {
+    flex-shrink: 0;
+  }
+
+  ul,
+  ol {
+    list-style: none;
+  }
+
+  a:not([class]) {
+    text-decoration-skip-ink: auto;
+  }
+
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+  }
+
+  ::selection {
+    background: rgb(15, 111, 253);
+    color: rgb(255, 255, 255);
+    -webkit-text-fill-color: rgb(255, 255, 255);
+  }
+
+  :root {
+    scroll-behavior: smooth;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  p {
+    margin: 0;
+  }
+
+  input {
+    outline: none;
+    background: none;
+    border: 0;
+  }
+
+  button {
+    padding: 0;
+    cursor: pointer;
+    border: 0;
+  }
+
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow: hidden;
+  }
+
+  
+}
+
+:root {
+    --black-color: #0f0f0f;
+}
+
+
