@@ -15,7 +15,6 @@ export default defineNuxtConfig({
   dir: {
     pages: "./src/app/routes",
     layouts: "./src/app/layouts",
-    app: "./src/entrypoint/app",
     middleware: "./src/app/middleware",
     plugins: "./src/app/plugins",
   },
@@ -30,4 +29,13 @@ export default defineNuxtConfig({
     },
   },
   css: ["./src/app/styles/main.css"],
+  vite: {
+    resolve: {
+      alias: {
+        ".prisma/client/index-browser":
+          "./node_modules/.prisma/client/index-browser.js",
+        punycode: "punycode/",
+      },
+    },
+  },
 });

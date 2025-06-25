@@ -1,7 +1,7 @@
 <template>
   <NuxtLink to="/">
     <NuxtImg
-      width="180"
+      width="160"
       height="30"
       src="/logo.svg"
       alt="Logo"

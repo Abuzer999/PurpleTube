@@ -1,0 +1,1 @@
+export { default as SearchInput } from "./search-video/ui/SearchInput.vue";
