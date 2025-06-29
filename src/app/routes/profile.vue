@@ -1,7 +1,6 @@
 <script setup>
-import { AuthPage } from "@/pages/auth";
 useHead({
-  title: "PurpleTube",
+  title: "Profile",
 });
 definePageMeta({
   layout: "auth",
@@ -10,5 +9,5 @@ definePageMeta({
 </script>
 
 <template>
-  <AuthPage />
+  <div>sssssssssss</div>
 </template>

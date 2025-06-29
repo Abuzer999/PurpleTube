@@ -15,7 +15,7 @@
           :schema="loginSchema"
           :state="loginForm"
           class="flex flex-col gap-4 w-full"
-          @submit="onSubmit"
+          @submit="login"
         >
           <Input
             v-model="loginForm.email"
@@ -33,12 +33,7 @@
             variant="none"
             :ui="uiInput"
           />
-          <Button
-            label="Login"
-            type="submit"
-            :loading="true"
-            :ui="uiButton"
-          />
+          <Button label="Login" type="submit" :loading="true" :ui="uiButton" />
         </UForm>
       </template>
 
@@ -47,8 +42,16 @@
           :schema="registerSchema"
           :state="registerForm"
           class="flex flex-col gap-4 w-full"
-          @submit="onSubmit"
+          @submit="register"
         >
+          <Input
+            v-model="registerForm.name"
+            label="Nick"
+            placeholder="Enter nick"
+            type="text"
+            variant="none"
+            :ui="uiInput"
+          />
           <Input
             v-model="registerForm.email"
             label="Email"
@@ -104,8 +107,35 @@ const loginForm = reactive({
 });
 
 const registerForm = reactive({
+  name: "",
   email: "",
   password: "",
   passwordConfirm: "",
 });
+
+const login = async () => {
+  try {
+    await $fetch("/api/auth/login", {
+      method: "POST",
+      body: loginForm,
+    });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    }
+  }
+};
+
+const register = async () => {
+  try {
+    await $fetch("/api/auth/register", {
+      method: "POST",
+      body: registerForm,
+    });
+  } catch (error: unknown) {
+    if (error instanceof Error) {
+      console.log(error.message);
+    }
+  }
+};
 </script>

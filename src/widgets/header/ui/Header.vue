@@ -23,7 +23,6 @@
 </template>
 
 <script setup lang="ts">
-
 import { Logo, Button } from "@/shared/ui";
 import { SearchInput } from "@/features";
 import { useSideOver } from "@/shared/hook/useSideOver";
@@ -44,4 +43,5 @@ onBeforeUnmount(() => {
 const handleScroll = () => {
   scrolled.value = window.scrollY > 10;
 };
+
 </script>

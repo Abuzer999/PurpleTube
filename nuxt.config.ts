@@ -8,11 +8,15 @@ export default defineNuxtConfig({
     "nuxt-typed-router",
     "@pinia/nuxt",
     "@nuxt/ui",
+    "@prisma/nuxt",
+    "nuxt-auth-utils",
+    "nuxt-nodemailer",
   ],
   alias: {
     "@": "../src",
   },
   dir: {
+    app: "./src/app/entrypoint",
     pages: "./src/app/routes",
     layouts: "./src/app/layouts",
     middleware: "./src/app/middleware",
@@ -28,7 +32,7 @@ export default defineNuxtConfig({
       ],
     },
   },
-  css: ["./src/app/styles/main.css"],
+  css: ["./src/app/assets/css/main.css"],
   vite: {
     resolve: {
       alias: {
@@ -36,6 +40,25 @@ export default defineNuxtConfig({
           "./node_modules/.prisma/client/index-browser.js",
         punycode: "punycode/",
       },
+    },
+  },
+  prisma: {
+    autoSetupPrisma: true,
+  },
+  runtimeConfig: {
+    session: {
+      maxAge: 60 * 60 * 24 * 7,
+    },
+  },
+  nodemailer: {
+    from: process.env.NUXT_NODEMAILER_FROM,
+    service: "gmail",
+    host: process.env.NUXT_NODEMAILER_HOST,
+    port: 587,
+    secure: true,
+    auth: {
+      user: process.env.NUXT_NODEMAILER_USER,
+      pass: process.env.NUXT_NODEMAILER_PASS,
     },
   },
 });
